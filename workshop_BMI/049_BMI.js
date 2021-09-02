@@ -1,16 +1,17 @@
-//สร้าง function BMI โดยรับค่า pounds , inches
-function findBMI(pounds,inches) {
-    kg = pounds*(0.453592); //kg คือตัวแปรที่รับค่า pound มาแปลงเป็นเป็น Kilogram
-    m  = inches*(0.0254); // m คือ ตัวแปรที่รับค่า inches มาแปลงเป็น meter 
-    bmi = kg/m^2;  // bmi คือ ตัวแปรที่หาค่า BMI 
+    let Kilogram ; //ตัวแปร let Kilogram
+    let Meter ; // ตัวแปร let Meter
 
-    return `kg : ${kg} , m : ${m} , bmi : ${bmi}`;  //return ค่าต่างๆเก็บไว้ นิพจน์ (${ value }) 
-}
+function bmi(pound,inch){
+    const convertPoundtoKg = 0.453592 ; //ตัวแปร const เนื่องจากไม่ต้องการให้แปลงค่าได้
+    const convertInchtoM = 0.0254 ; 
 
-console.log(`BMI : ${findBMI(36.5,39)}`) // log ข้อมูลในหน้านั้นออกมาดูว่าทำงานได้ผลลัพท์อย่างไร ตาม function
-
-
-function BMI(pound,inch){
-    
-}
+    Kilogram = pound * convertPoundtoKg; // นำตัวแปร let ด้านบนมา set ค่า
+    meter = inch * convertInchtoM; 
+    BMI =  `BMI : ${(Kilogram / (meter**2)).toFixed(3)}  weight : ${Kilogram.toFixed(0)} height : ${meter.toFixed(2)}` ; // สามารถใช้ Math.pow(meter,2) แทน (meter**2)ได้ 
+    // ใช้  backtick  key เนื่องจากต้องการใช้ string ได้โดยที่ไม่ต้องใช้ "" or  '' สามารถพิมพ์ String ได้ทันที ส่วน javascript expression ต้องใส่ไว้ใน ${}
+    return  BMI ;
+} 
+ console.log(bmi(36.5,39));
+ console.log(bmi(125,66.9));
+ console.log(bmi(125,66.9));
 
